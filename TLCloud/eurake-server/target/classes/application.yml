@@ -1,0 +1,14 @@
+server:
+  port: 8761
+eureka:
+  instance:
+    hostname: localhost
+  client:
+    register-with-eureka: false  #true是把自己也注册进去  不做高可用就置位false
+    fetch-registry: false  #不从eureka服务上获取注册信息  自己本身就是eureka
+    service-url:      #默认this.serviceUrl.put("defaultZone", "http://localhost:8761/eureka/");
+      defaultZone: http://${eureka.instance.hostname}:${server.port}/eureka/
+spring:
+  application:
+    name: eurka-server
+
